@@ -7,47 +7,50 @@
 <meta name="description" content="專為國小至國中學生打造的專業寫作課程。小班制溫馨教學，讓孩子學會思考、表達、寫作，建立語文自信！">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=LXGW+WenKai+TC&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#FAF6EF;
-    --bg2:#F5E6C8;
-    --primary:#6B7C5C;
-    --primary-dark:#55644A;
-    --text:#3D2B1F;
-    --text-soft:#6E5A4B;
-    --card:#FFFDF8;
-    --line:#E4D8C2;
-    --accent:#C9A86A;
+    --yellow:#F9E84A;
+    --yellow-soft:#FDF6C9;
+    --coral:#F4845F;
+    --coral-soft:#FCE0D6;
+    --sky:#89C4E1;
+    --sky-soft:#E2F1F8;
+    --ink:#2D4A3E;
+    --ink-soft:#5A7265;
+    --paper:#FFFDF5;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    font-family:'Noto Sans TC',sans-serif;
-    color:var(--text);
-    background-color:var(--bg);
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-    line-height:1.8;
+    font-family:'Noto Sans TC',sans-serif;color:var(--ink);
+    background:var(--paper);line-height:1.85;overflow-x:hidden;
   }
-  h1,h2,h3{font-family:'Playfair Display','Noto Serif TC',serif;}
   img{max-width:100%;display:block;}
   a{color:inherit;text-decoration:none;}
   .container{max-width:1100px;margin:0 auto;padding:0 24px;}
-  section{padding:80px 0;}
+  section{padding:84px 0;position:relative;}
+  .hand{font-family:'Caveat','LXGW WenKai TC',cursive;}
   .section-title{
-    text-align:center;font-size:2rem;font-weight:700;margin-bottom:12px;letter-spacing:.08em;
+    text-align:center;font-size:2.1rem;font-weight:900;letter-spacing:.1em;
+    margin-bottom:10px;position:relative;display:table;margin-left:auto;margin-right:auto;
   }
-  .section-sub{text-align:center;color:var(--text-soft);margin-bottom:48px;font-size:.98rem;}
-  .section-title::after{
-    content:"";display:block;width:56px;height:3px;background:var(--accent);
-    margin:14px auto 0;border-radius:2px;
+  .section-title .marker{
+    position:relative;display:inline-block;z-index:1;
+  }
+  .section-title .marker::after{ /* 螢光筆畫線 */
+    content:"";position:absolute;left:-6px;right:-6px;bottom:6px;height:.5em;
+    background:var(--yellow);z-index:-1;transform:rotate(-1.2deg);border-radius:3px;
+  }
+  .section-sub{
+    text-align:center;color:var(--ink-soft);margin-bottom:52px;
+    font-family:'LXGW WenKai TC',serif;font-size:1.05rem;
   }
 
   /* ===== 導覽列 ===== */
   header{
-    position:sticky;top:0;z-index:100;
-    background:rgba(250,246,239,.92);backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:100;background:rgba(255,253,245,.94);
+    border-bottom:3px solid var(--ink);
   }
   .nav{
     display:flex;align-items:center;justify-content:space-between;
@@ -55,284 +58,417 @@
   }
   .brand{display:flex;align-items:center;gap:12px;}
   .brand img{
-    width:52px;height:52px;border-radius:50%;object-fit:cover;
-    border:2px solid var(--bg2);box-shadow:0 2px 6px rgba(61,43,31,.15);
+    width:54px;height:54px;border-radius:50%;object-fit:cover;
+    border:3px solid var(--ink);background:var(--yellow);
+    transform:rotate(-6deg);transition:.3s;
   }
-  .brand span{
-    font-family:'Noto Serif TC',serif;font-weight:900;font-size:1.15rem;letter-spacing:.1em;
-  }
-  nav ul{display:flex;gap:6px;list-style:none;}
+  .brand:hover img{transform:rotate(6deg) scale(1.06);}
+  .brand span{font-weight:900;font-size:1.15rem;letter-spacing:.08em;}
+  nav ul{display:flex;gap:4px;list-style:none;}
   nav a{
-    padding:8px 14px;border-radius:20px;font-size:.95rem;font-weight:500;
-    transition:.25s;white-space:nowrap;
+    padding:8px 14px;border-radius:14px;font-size:.95rem;font-weight:700;
+    transition:.2s;white-space:nowrap;border:2px solid transparent;
   }
-  nav a:hover{background:var(--bg2);color:var(--primary-dark);}
+  nav a:hover{background:var(--yellow);border-color:var(--ink);transform:rotate(-1.5deg);}
   .nav-toggle{
-    display:none;background:none;border:none;font-size:1.6rem;color:var(--text);cursor:pointer;
+    display:none;background:var(--yellow);border:2px solid var(--ink);border-radius:10px;
+    font-size:1.4rem;color:var(--ink);cursor:pointer;padding:2px 10px;
   }
 
   /* ===== Hero ===== */
   .hero{
-    background-image:
-      linear-gradient(100deg,rgba(250,246,239,.96) 0%,rgba(250,246,239,.88) 34%,rgba(245,230,200,.55) 62%,rgba(245,230,200,.25) 100%),
-      url("hero-bg.jpg");
-    background-size:cover;background-position:center 30%;
-    position:relative;overflow:hidden;padding:100px 0 110px;
+    background:var(--yellow);
+    border-bottom:3px solid var(--ink);
+    padding:96px 0 120px;overflow:hidden;
   }
-  .hero::before{
-    content:"";position:absolute;inset:0;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events:none;
-  }
+  .blob{position:absolute;pointer-events:none;}
   .hero-inner{
-    display:grid;grid-template-columns:1.25fr 1fr;align-items:center;gap:40px;position:relative;
+    display:grid;grid-template-columns:1.2fr 1fr;align-items:center;gap:44px;position:relative;
   }
-  .hero-text{text-align:left;}
+  .hero-badge{
+    display:inline-block;background:#fff;border:2.5px solid var(--ink);
+    border-radius:30px;padding:6px 20px;font-weight:700;font-size:.95rem;
+    box-shadow:4px 4px 0 var(--ink);transform:rotate(-2deg);margin-bottom:24px;
+  }
   .hero h1{
-    font-size:clamp(2rem,5vw,3.2rem);font-weight:900;letter-spacing:.12em;
-    font-family:'Noto Serif TC',serif;position:relative;
-    text-shadow:0 2px 14px rgba(250,246,239,.9);
+    font-size:clamp(2.2rem,5.4vw,3.6rem);font-weight:900;letter-spacing:.1em;
+    line-height:1.35;margin-bottom:20px;
   }
-  .hero p{
-    max-width:520px;margin:24px 0 40px;color:var(--text-soft);font-size:1.05rem;position:relative;
-    text-shadow:0 1px 10px rgba(250,246,239,.9);
+  .hero h1 .pop{color:var(--coral);text-shadow:2px 2px 0 #fff;}
+  .hero p{max-width:500px;font-size:1.08rem;margin-bottom:38px;font-weight:500;}
+  .btn{
+    display:inline-block;padding:14px 34px;border-radius:16px;font-weight:900;
+    font-size:1.02rem;letter-spacing:.1em;border:3px solid var(--ink);
+    box-shadow:5px 5px 0 var(--ink);transition:.15s;margin:0 10px 12px 0;
   }
-  .hero-eyebrow{
-    display:inline-block;position:relative;margin-bottom:18px;
-    font-family:'Playfair Display',serif;font-style:italic;color:var(--primary);
-    letter-spacing:.2em;font-size:1rem;
-  }
+  .btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink);}
+  .btn-coral{background:var(--coral);color:#fff;}
+  .btn-white{background:#fff;color:var(--ink);}
+  .btn-sky{background:var(--sky);color:var(--ink);}
 
-  /* ===== 3D 翻轉徽章 ===== */
-  .coin-stage{
-    display:flex;justify-content:center;align-items:center;
-    perspective:900px;position:relative;
-  }
+  /* 3D 翻轉徽章（高相容寫法） */
+  .coin-stage{display:flex;justify-content:center;perspective:900px;-webkit-perspective:900px;}
   .coin-float{
     -webkit-animation:coinFloat 5s ease-in-out infinite;
-    animation:coinFloat 5s ease-in-out infinite;
+    animation:coinFloat 5s ease-in-out infinite;position:relative;
   }
   .coin{
-    width:240px;height:240px;position:relative;
-    -webkit-transform-style:preserve-3d;
-    transform-style:preserve-3d;
+    width:250px;height:250px;position:relative;
+    -webkit-transform-style:preserve-3d;transform-style:preserve-3d;
     -webkit-animation:coinSpin 9s cubic-bezier(.45,.05,.55,.95) infinite;
     animation:coinSpin 9s cubic-bezier(.45,.05,.55,.95) infinite;
   }
   .coin-face{
-    position:absolute;top:0;left:0;right:0;bottom:0;
-    border-radius:50%;overflow:hidden;
-    -webkit-backface-visibility:hidden;
-    backface-visibility:hidden;
-    border:6px solid #F1DDBA;
-    box-shadow:0 18px 40px rgba(61,43,31,.28), inset 0 0 0 3px rgba(255,255,255,.5);
-    background:#F5E6C8;
+    position:absolute;top:0;left:0;right:0;bottom:0;border-radius:50%;overflow:hidden;
+    -webkit-backface-visibility:hidden;backface-visibility:hidden;
+    border:4px solid var(--ink);
+    box-shadow:8px 10px 0 rgba(45,74,62,.25);
+    background:#fff;
   }
   .coin-face img{width:100%;height:100%;object-fit:cover;}
   .coin-face.back{
-    -webkit-transform:rotateY(180deg);
-    transform:rotateY(180deg);
-    display:flex;align-items:center;justify-content:center;gap:6px;
-    background:radial-gradient(circle at 35% 30%,#FBF3DF,#F1DDBA 70%);
+    -webkit-transform:rotateY(180deg);transform:rotateY(180deg);
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    background:radial-gradient(circle at 35% 30%,#fff,var(--yellow-soft) 70%);
   }
-  .coin-face.back img{
-    width:38%;height:auto;object-fit:contain;
-    filter:drop-shadow(0 2px 3px rgba(61,43,31,.25));
-  }
+  .coin-face.back img{width:36%;height:auto;object-fit:contain;}
   .coin-shadow{
-    position:absolute;bottom:-34px;left:50%;transform:translateX(-50%);
-    width:60%;height:22px;border-radius:50%;
-    background:radial-gradient(ellipse,rgba(61,43,31,.3),transparent 70%);
+    position:absolute;bottom:-30px;left:50%;
+    -webkit-transform:translateX(-50%);transform:translateX(-50%);
+    width:58%;height:20px;border-radius:50%;
+    background:radial-gradient(ellipse,rgba(45,74,62,.35),transparent 70%);
+    -webkit-animation:shadowPulse 5s ease-in-out infinite;
     animation:shadowPulse 5s ease-in-out infinite;
   }
   @-webkit-keyframes coinSpin{
-    0%,12%   {-webkit-transform:rotateY(0deg);transform:rotateY(0deg);}
-    42%,62%  {-webkit-transform:rotateY(180deg);transform:rotateY(180deg);}
-    92%,100% {-webkit-transform:rotateY(360deg);transform:rotateY(360deg);}
+    0%,12%{-webkit-transform:rotateY(0);transform:rotateY(0);}
+    42%,62%{-webkit-transform:rotateY(180deg);transform:rotateY(180deg);}
+    92%,100%{-webkit-transform:rotateY(360deg);transform:rotateY(360deg);}
   }
   @keyframes coinSpin{
-    0%,12%   {-webkit-transform:rotateY(0deg);transform:rotateY(0deg);}
-    42%,62%  {-webkit-transform:rotateY(180deg);transform:rotateY(180deg);}
-    92%,100% {-webkit-transform:rotateY(360deg);transform:rotateY(360deg);}
+    0%,12%{-webkit-transform:rotateY(0);transform:rotateY(0);}
+    42%,62%{-webkit-transform:rotateY(180deg);transform:rotateY(180deg);}
+    92%,100%{-webkit-transform:rotateY(360deg);transform:rotateY(360deg);}
   }
   @-webkit-keyframes coinFloat{
     0%,100%{-webkit-transform:translateY(0);transform:translateY(0);}
-    50%{-webkit-transform:translateY(-16px);transform:translateY(-16px);}
+    50%{-webkit-transform:translateY(-15px);transform:translateY(-15px);}
   }
   @keyframes coinFloat{
     0%,100%{-webkit-transform:translateY(0);transform:translateY(0);}
-    50%{-webkit-transform:translateY(-16px);transform:translateY(-16px);}
+    50%{-webkit-transform:translateY(-15px);transform:translateY(-15px);}
+  }
+  @-webkit-keyframes shadowPulse{
+    0%,100%{opacity:1;}50%{opacity:.6;}
   }
   @keyframes shadowPulse{
-    0%,100%{transform:translateX(-50%) scale(1);opacity:1;}
-    50%{transform:translateX(-50%) scale(.82);opacity:.65;}
+    0%,100%{opacity:1;}50%{opacity:.6;}
   }
-  /* 漂浮書法字 */
-  .ink-char{
-    position:absolute;width:64px;opacity:.1;pointer-events:none;
-    animation:inkDrift 12s ease-in-out infinite;
-  }
-  @keyframes inkDrift{
-    0%,100%{transform:translateY(0) rotate(-6deg);}
-    50%{transform:translateY(-22px) rotate(5deg);}
-  }
-  /* 不支援 3D 的舊瀏覽器：停用翻轉、隱藏背面，只顯示正面 logo */
   @supports not ((transform-style: preserve-3d) or (-webkit-transform-style: preserve-3d)){
     .coin{-webkit-animation:none;animation:none;}
     .coin-face.back{display:none;}
   }
   @media (prefers-reduced-motion: reduce){
-    .coin,.coin-float,.coin-shadow,.ink-char{-webkit-animation:none;animation:none;}
+    .coin,.coin-float,.coin-shadow{-webkit-animation:none;animation:none;}
   }
-  @media (max-width: 480px){
-    .coin{width:180px;height:180px;}
-  }
-  .btn{
-    display:inline-block;padding:13px 34px;border-radius:30px;font-weight:700;
-    font-size:1rem;letter-spacing:.1em;transition:.25s;position:relative;
-  }
-  .btn-primary{background:var(--primary);color:#FFFDF8;box-shadow:0 4px 14px rgba(107,124,92,.35);}
-  .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);}
-  .btn-outline{border:2px solid var(--primary);color:var(--primary-dark);}
-  .btn-outline:hover{background:var(--primary);color:#FFFDF8;transform:translateY(-2px);}
-  .hero .btn{margin:0 8px 10px;}
 
-  /* ===== 四大特色 ===== */
-  .features-grid{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
-  }
+  /* ===== 四大特色：手剪貼卡片 ===== */
+  .features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;}
   .feature-card{
-    background:var(--card);border:1px solid var(--line);border-radius:18px;
-    padding:36px 24px;text-align:center;transition:.3s;
-    box-shadow:0 3px 10px rgba(61,43,31,.06);
+    border:3px solid var(--ink);padding:34px 22px;text-align:center;
+    transition:.25s;position:relative;background:#fff;
+    box-shadow:6px 6px 0 var(--ink);
   }
-  .feature-card:hover{transform:translateY(-6px);box-shadow:0 10px 24px rgba(61,43,31,.12);}
-  .feature-card svg{width:52px;height:52px;margin:0 auto 18px;stroke:var(--primary);}
-  .feature-card h3{font-size:1.2rem;font-family:'Noto Serif TC',serif;font-weight:700;margin-bottom:12px;color:var(--primary-dark);}
-  .feature-card p{font-size:.92rem;color:var(--text-soft);}
+  .feature-card:nth-child(1){background:var(--yellow-soft);transform:rotate(-1.6deg);border-radius:22px 8px 24px 10px;}
+  .feature-card:nth-child(2){background:var(--coral-soft);transform:rotate(1.3deg);border-radius:8px 24px 10px 22px;}
+  .feature-card:nth-child(3){background:var(--sky-soft);transform:rotate(-1deg);border-radius:24px 10px 20px 8px;}
+  .feature-card:nth-child(4){background:#E8F2E4;transform:rotate(1.8deg);border-radius:10px 22px 8px 24px;}
+  .feature-card:hover{transform:rotate(0) translateY(-6px);box-shadow:8px 10px 0 var(--ink);}
+  .feature-card .tape{ /* 紙膠帶 */
+    position:absolute;top:-14px;left:50%;width:90px;height:26px;
+    background:rgba(244,132,95,.55);border-radius:3px;
+    -webkit-transform:translateX(-50%) rotate(-3deg);transform:translateX(-50%) rotate(-3deg);
+  }
+  .feature-card:nth-child(even) .tape{background:rgba(137,196,225,.6);-webkit-transform:translateX(-50%) rotate(2.5deg);transform:translateX(-50%) rotate(2.5deg);}
+  .feature-card svg{width:54px;height:54px;margin:0 auto 16px;stroke:var(--ink);}
+  .feature-card h3{font-size:1.25rem;font-weight:900;margin-bottom:10px;}
+  .feature-card p{font-size:.92rem;color:var(--ink-soft);}
 
   /* ===== 課程體系 ===== */
-  .courses{background:var(--bg2);position:relative;}
-  .courses-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+  .courses{background:var(--sky-soft);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);}
+  .courses-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;}
   .course-col{
-    background:var(--card);border-radius:20px;padding:42px 36px;
-    border:1px solid var(--line);box-shadow:0 4px 14px rgba(61,43,31,.08);
-    display:flex;flex-direction:column;
+    background:#fff;border:3px solid var(--ink);border-radius:26px 12px 26px 12px;
+    padding:42px 36px;box-shadow:7px 7px 0 var(--ink);
+    display:flex;flex-direction:column;position:relative;
   }
-  .course-col h3{
-    font-family:'Noto Serif TC',serif;font-size:1.45rem;font-weight:700;
-    color:var(--primary-dark);margin-bottom:6px;
+  .course-col:first-child{transform:rotate(-.6deg);}
+  .course-col:last-child{transform:rotate(.6deg);}
+  .course-col .col-badge{
+    position:absolute;top:-20px;left:30px;
+    background:var(--yellow);border:3px solid var(--ink);border-radius:14px;
+    padding:4px 18px;font-weight:900;font-size:1.15rem;letter-spacing:.12em;
+    box-shadow:3px 3px 0 var(--ink);transform:rotate(-2deg);
   }
+  .course-col:last-child .col-badge{background:var(--coral);color:#fff;transform:rotate(2deg);}
   .course-col .en{
-    font-family:'Playfair Display',serif;font-style:italic;color:var(--accent);
-    font-size:.95rem;margin-bottom:22px;
+    font-family:'Caveat',cursive;color:var(--coral);font-size:1.3rem;margin:10px 0 16px;
   }
-  .course-col ul{list-style:none;margin-bottom:28px;flex:1;}
+  .course-col:last-child .en{color:var(--sky);}
+  .course-col ul{list-style:none;margin-bottom:26px;flex:1;}
   .course-col li{
-    padding:13px 4px;border-bottom:1px dashed var(--line);
-    display:flex;align-items:baseline;gap:10px;font-size:1rem;
+    padding:12px 4px;border-bottom:2.5px dashed var(--sky);
+    display:flex;align-items:baseline;gap:10px;font-weight:500;
   }
-  .course-col li::before{content:"✦";color:var(--accent);font-size:.8rem;}
-  .course-col li small{color:var(--text-soft);font-size:.85rem;}
-  .course-col .btn{align-self:flex-start;padding:10px 28px;font-size:.95rem;}
-  .course-banners{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;}
+  .course-col li::before{content:"✏️";font-size:.85rem;}
+  .course-col:last-child li::before{content:"☀️";}
+  .course-col li small{color:var(--ink-soft);font-size:.85rem;}
+  .course-banners{display:flex;flex-direction:column;gap:12px;margin-bottom:26px;}
   .course-banners img{
-    width:100%;border-radius:10px;border:1px solid var(--line);
-    box-shadow:0 3px 8px rgba(61,43,31,.1);transition:.3s;
+    width:100%;border:2.5px solid var(--ink);border-radius:14px;
+    transition:.2s;
   }
-  .course-banners img:hover{transform:scale(1.02);box-shadow:0 8px 18px rgba(61,43,31,.18);}
+  .course-banners img:hover{transform:rotate(-1deg) scale(1.02);box-shadow:4px 4px 0 var(--ink);}
+  .course-actions{display:flex;flex-wrap:wrap;gap:4px;}
+  .course-actions .btn{padding:11px 24px;font-size:.93rem;}
+
+  /* ===== 課表（圖像化展示） ===== */
+  .schedule-sec{
+    background:var(--paper);
+    background-image:radial-gradient(rgba(137,196,225,.25) 2.5px,transparent 2.5px);
+    background-size:34px 34px;
+  }
+  .sched-block{max-width:880px;margin:0 auto 70px;}
+  .sched-block:last-child{margin-bottom:0;}
+  .sched-head{
+    display:flex;align-items:center;justify-content:center;gap:14px;
+    margin-bottom:28px;flex-wrap:wrap;
+  }
+  .sched-head h3{
+    font-size:1.5rem;font-weight:900;letter-spacing:.08em;
+    background:#fff;border:3px solid var(--ink);border-radius:18px;
+    padding:8px 26px;box-shadow:4px 4px 0 var(--ink);transform:rotate(-1deg);
+  }
+  .sched-head .doodle{font-size:1.8rem;}
+  /* 梯次頁籤 */
+  .tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:30px;}
+  .tab-btn{
+    border:3px solid var(--ink);border-radius:14px;background:#fff;
+    font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:.98rem;
+    padding:9px 18px;cursor:pointer;box-shadow:3px 3px 0 var(--ink);
+    transition:.15s;color:var(--ink);
+  }
+  .tab-btn small{display:block;font-weight:500;font-size:.78rem;color:var(--ink-soft);}
+  .tab-btn:hover{transform:translate(1px,1px);box-shadow:1px 1px 0 var(--ink);}
+  .tab-btn.active{background:var(--yellow);transform:rotate(-1.5deg);}
+  .tab-panel{display:none;}
+  .tab-panel.show{display:block;}
+  /* 課表卡 */
+  .grade-row{
+    display:flex;gap:16px;align-items:stretch;
+    background:#fff;border:3px solid var(--ink);border-radius:20px;
+    padding:18px 22px;margin-bottom:16px;box-shadow:5px 5px 0 var(--ink);
+  }
+  .grade-row:nth-child(odd){transform:rotate(-.4deg);}
+  .grade-row:nth-child(even){transform:rotate(.4deg);}
+  .grade-tag{
+    flex:0 0 92px;display:flex;align-items:center;justify-content:center;
+    border-radius:14px;font-weight:900;font-size:1.05rem;letter-spacing:.1em;
+    border:2.5px solid var(--ink);text-align:center;padding:8px 4px;
+  }
+  .grade-row:nth-child(3n+1) .grade-tag{background:var(--yellow);}
+  .grade-row:nth-child(3n+2) .grade-tag{background:var(--coral);color:#fff;}
+  .grade-row:nth-child(3n) .grade-tag{background:var(--sky);}
+  .lesson-list{flex:1;display:flex;flex-direction:column;gap:10px;justify-content:center;}
+  .lesson{
+    display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+    border-bottom:2px dashed rgba(45,74,62,.25);padding-bottom:8px;
+  }
+  .lesson:last-child{border-bottom:none;padding-bottom:0;}
+  .lesson .t{
+    background:var(--yellow-soft);border:2px solid var(--ink);border-radius:30px;
+    font-weight:700;font-size:.82rem;padding:2px 12px;white-space:nowrap;
+  }
+  .lesson .n{font-weight:700;font-size:1rem;}
+  /* 夏季班 */
+  .info-chips{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:30px;}
+  .chip{
+    background:#fff;border:2.5px solid var(--ink);border-radius:30px;
+    padding:7px 20px;font-weight:700;font-size:.92rem;box-shadow:3px 3px 0 var(--ink);
+  }
+  .chip.hot{background:var(--coral);color:#fff;transform:rotate(-1.5deg);}
+  .chip.cool{background:var(--sky);transform:rotate(1deg);}
+  .theme-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .theme-card{
+    background:#fff;border:3px solid var(--ink);padding:24px 24px 20px;
+    box-shadow:5px 5px 0 var(--ink);position:relative;
+  }
+  .theme-card:nth-child(1){border-radius:22px 8px 22px 8px;transform:rotate(-.8deg);}
+  .theme-card:nth-child(2){border-radius:8px 22px 8px 22px;transform:rotate(.8deg);}
+  .theme-card:nth-child(3){border-radius:20px 10px 24px 8px;transform:rotate(.6deg);}
+  .theme-card:nth-child(4){border-radius:10px 24px 8px 20px;transform:rotate(-.6deg);}
+  .theme-card:nth-child(5){border-radius:22px 10px 20px 10px;transform:rotate(-.5deg);grid-column:1/-1;max-width:560px;margin:0 auto;width:100%;}
+  .theme-card:hover{transform:rotate(0) translateY(-4px);}
+  .theme-card h4{
+    display:inline-block;font-size:1.15rem;font-weight:900;margin-bottom:4px;
+    border-bottom:6px solid var(--yellow);line-height:1.3;
+  }
+  .theme-card:nth-child(2) h4{border-color:var(--coral-soft);}
+  .theme-card:nth-child(3) h4{border-color:var(--sky-soft);}
+  .theme-card:nth-child(4) h4{border-color:#CDE6C5;}
+  .theme-card .grade{
+    font-family:'LXGW WenKai TC',serif;color:var(--ink-soft);margin-bottom:14px;font-size:.92rem;
+  }
+  .slot-list{display:flex;flex-wrap:wrap;gap:8px;}
+  .slot{
+    border:2px solid var(--ink);border-radius:30px;padding:3px 14px;
+    font-weight:700;font-size:.85rem;background:var(--yellow-soft);
+  }
+  .slot.sun{background:var(--coral-soft);}
+  .slot.wed{background:var(--sky-soft);}
+  .sched-note{
+    text-align:center;margin-top:26px;font-family:'LXGW WenKai TC',serif;color:var(--ink-soft);font-size:.95rem;
+  }
+  .sched-note a{font-weight:700;text-decoration:underline;}
+  @media (max-width: 680px){
+    .grade-row{flex-direction:column;gap:12px;}
+    .grade-tag{flex:none;align-self:flex-start;padding:4px 16px;}
+    .theme-grid{grid-template-columns:1fr;}
+  }
+
+  /* ===== 作文比賽 ===== */
+  .contest{background:var(--coral-soft);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);}
+  .contest-frame{ /* 拍立得相框 */
+    max-width:680px;margin:0 auto;background:#fff;
+    border:3px solid var(--ink);border-radius:6px;
+    padding:18px 18px 24px;box-shadow:8px 8px 0 var(--ink);
+    transform:rotate(-1deg);transition:.25s;position:relative;
+  }
+  .contest-frame:hover{transform:rotate(0);}
+  .contest-frame .tape-l,.contest-frame .tape-r{
+    position:absolute;top:-15px;width:92px;height:28px;border-radius:3px;
+  }
+  .contest-frame .tape-l{left:8%;background:rgba(249,232,74,.8);-webkit-transform:rotate(-5deg);transform:rotate(-5deg);}
+  .contest-frame .tape-r{right:8%;background:rgba(137,196,225,.7);-webkit-transform:rotate(4deg);transform:rotate(4deg);}
+  .contest-frame img{width:100%;border-radius:3px;border:1px solid var(--ink);}
+  .contest-frame figcaption{
+    text-align:center;margin-top:14px;font-family:'LXGW WenKai TC',serif;font-size:1.05rem;
+  }
+  .contest .more-link{text-align:center;margin-top:42px;}
 
   /* ===== QR Code ===== */
-  .qr-grid{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;}
+  .signup-sec .qr-grid{display:flex;justify-content:center;gap:52px;flex-wrap:wrap;}
   .qr-card{
-    background:var(--card);border:1px solid var(--line);border-radius:18px;
-    padding:32px 36px;text-align:center;box-shadow:0 4px 14px rgba(61,43,31,.08);
-    transition:.3s;
+    background:#fff;border:3px solid var(--ink);border-radius:18px;
+    padding:30px 34px 26px;text-align:center;position:relative;
+    box-shadow:6px 6px 0 var(--ink);transition:.25s;
   }
-  .qr-card:hover{transform:translateY(-4px);}
-  .qr-card img{width:200px;height:200px;object-fit:contain;margin:0 auto 18px;border-radius:8px;}
-  .qr-card h3{font-family:'Noto Serif TC',serif;font-size:1.1rem;font-weight:700;color:var(--primary-dark);}
-  .qr-card p{font-size:.85rem;color:var(--text-soft);margin-top:4px;}
+  .qr-card:first-child{transform:rotate(-1.5deg);}
+  .qr-card:last-child{transform:rotate(1.5deg);}
+  .qr-card:hover{transform:rotate(0) translateY(-5px);}
+  .qr-card .pin{ /* 圖釘 */
+    position:absolute;top:-13px;left:50%;width:26px;height:26px;border-radius:50%;
+    background:var(--coral);border:3px solid var(--ink);
+    -webkit-transform:translateX(-50%);transform:translateX(-50%);
+  }
+  .qr-card:last-child .pin{background:var(--sky);}
+  .qr-card img{width:190px;height:190px;object-fit:contain;margin:6px auto 16px;}
+  .qr-card h3{font-size:1.12rem;font-weight:900;}
+  .qr-card p{font-size:.85rem;color:var(--ink-soft);font-family:'LXGW WenKai TC',serif;}
 
-  /* ===== 家長好評 ===== */
-  .reviews{background:var(--bg2);}
-  .carousel{position:relative;max-width:640px;margin:0 auto;}
-  .carousel-track{overflow:hidden;border-radius:4px;}
+  /* ===== 家長好評：氣泡對話框 ===== */
+  .reviews{background:var(--yellow-soft);border-top:3px solid var(--ink);}
+  .carousel{position:relative;max-width:660px;margin:0 auto;}
+  .carousel-track{overflow:hidden;padding:10px 4px 30px;}
   .carousel-slides{display:flex;transition:transform .5s ease;}
-  .review-card{
-    min-width:100%;background:#FFFDF4;padding:46px 44px 38px;
-    border:1px solid var(--line);
-    box-shadow:0 8px 20px rgba(61,43,31,.1);
-    position:relative;border-radius:4px;
+  .bubble-wrap{min-width:100%;padding:0 10px;}
+  .bubble{
+    background:#fff;border:3px solid var(--ink);border-radius:24px;
+    padding:34px 36px 28px;position:relative;
+    box-shadow:6px 6px 0 var(--ink);
   }
-  .review-card::before{ /* 便條紙膠帶 */
-    content:"";position:absolute;top:-12px;left:50%;transform:translateX(-50%) rotate(-2deg);
-    width:110px;height:26px;background:rgba(201,168,106,.45);border-radius:2px;
+  .bubble::after{ /* 對話尾巴 */
+    content:"";position:absolute;bottom:-21px;left:64px;
+    width:30px;height:30px;background:#fff;
+    border-right:3px solid var(--ink);border-bottom:3px solid var(--ink);
+    -webkit-transform:rotate(45deg) skew(8deg,8deg);transform:rotate(45deg) skew(8deg,8deg);
   }
-  .review-card .stars{color:#D9A53C;font-size:1.1rem;letter-spacing:.2em;margin-bottom:14px;}
-  .review-card blockquote{
-    font-size:1.05rem;font-family:'Noto Serif TC',serif;margin-bottom:18px;line-height:2;
+  .bubble .stars{color:#F0B429;font-size:1.15rem;letter-spacing:.18em;margin-bottom:12px;}
+  .bubble blockquote{font-size:1.06rem;font-family:'LXGW WenKai TC',serif;line-height:2;}
+  .bubble-author{
+    display:flex;align-items:center;gap:12px;margin:30px 0 0 30px;
   }
-  .review-card cite{font-style:normal;color:var(--text-soft);font-size:.92rem;}
+  .bubble-author .avatar{
+    width:46px;height:46px;border-radius:50%;border:3px solid var(--ink);
+    background:var(--sky);color:#fff;font-weight:900;font-size:1.05rem;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .bubble-wrap:nth-child(2) .bubble-author .avatar{background:var(--coral);}
+  .bubble-author span{font-weight:700;}
   .carousel-btn{
-    position:absolute;top:50%;transform:translateY(-50%);
-    width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
-    background:var(--card);color:var(--primary-dark);font-size:1.2rem;cursor:pointer;
-    box-shadow:0 3px 8px rgba(61,43,31,.12);transition:.25s;z-index:2;
+    position:absolute;top:42%;width:46px;height:46px;border-radius:50%;
+    border:3px solid var(--ink);background:var(--yellow);color:var(--ink);
+    font-size:1.3rem;font-weight:900;cursor:pointer;z-index:2;
+    box-shadow:3px 3px 0 var(--ink);transition:.15s;
   }
-  .carousel-btn:hover{background:var(--primary);color:#fff;}
-  .carousel-btn.prev{left:-22px;}
-  .carousel-btn.next{right:-22px;}
-  .carousel-dots{display:flex;justify-content:center;gap:10px;margin-top:26px;}
+  .carousel-btn:hover{transform:translate(1px,1px);box-shadow:1px 1px 0 var(--ink);}
+  .carousel-btn.prev{left:-20px;}
+  .carousel-btn.next{right:-20px;}
+  .carousel-dots{display:flex;justify-content:center;gap:10px;margin-top:8px;}
   .carousel-dots button{
-    width:10px;height:10px;border-radius:50%;border:none;background:#D8C9A8;cursor:pointer;transition:.25s;
+    width:14px;height:14px;border-radius:50%;border:2.5px solid var(--ink);
+    background:#fff;cursor:pointer;transition:.2s;
   }
-  .carousel-dots button.active{background:var(--primary);transform:scale(1.25);}
-  .reviews .more-link{text-align:center;margin-top:36px;}
+  .carousel-dots button.active{background:var(--coral);transform:scale(1.15);}
+  .reviews .more-link{text-align:center;margin-top:38px;}
 
   /* ===== CTA 結尾 ===== */
   .cta-final{
-    background:var(--primary);color:#FAF6EF;text-align:center;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+    background:var(--ink);color:#FFFDF5;text-align:center;
+    border-top:3px solid var(--ink);padding:92px 0;overflow:hidden;
   }
   .cta-final h2{
-    font-family:'Noto Serif TC',serif;font-size:2rem;font-weight:700;letter-spacing:.1em;margin-bottom:14px;
+    font-size:2.1rem;font-weight:900;letter-spacing:.1em;margin-bottom:14px;position:relative;
   }
-  .cta-final p{opacity:.9;margin-bottom:36px;}
-  .cta-final .btn-light{background:#FAF6EF;color:var(--primary-dark);margin:0 8px 10px;}
-  .cta-final .btn-light:hover{background:var(--bg2);transform:translateY(-2px);}
-  .cta-final .btn-ghost{border:2px solid rgba(250,246,239,.8);color:#FAF6EF;margin:0 8px 10px;}
-  .cta-final .btn-ghost:hover{background:rgba(250,246,239,.15);transform:translateY(-2px);}
+  .cta-final .hand-note{
+    font-family:'Caveat',cursive;font-size:1.5rem;color:var(--yellow);
+    transform:rotate(-2deg);display:inline-block;margin-bottom:8px;
+  }
+  .cta-final p{opacity:.92;margin-bottom:40px;font-family:'LXGW WenKai TC',serif;font-size:1.05rem;}
+  .cta-final .btn{box-shadow:5px 5px 0 rgba(249,232,74,.9);border-color:var(--yellow);}
+  .cta-final .btn:hover{box-shadow:2px 2px 0 rgba(249,232,74,.9);}
 
   /* ===== 頁尾 ===== */
-  footer{background:#33402B;color:#E8E2D4;padding:64px 0 0;font-size:.93rem;}
+  footer{background:#22382E;color:#DCE5DD;padding:64px 0 0;font-size:.93rem;}
   .footer-grid{
     display:grid;grid-template-columns:1.2fr 1fr 1.4fr;gap:40px;
     max-width:1100px;margin:0 auto;padding:0 24px 48px;
   }
   .footer-brand{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
   .footer-brand img{
-    width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid var(--accent);
+    width:56px;height:56px;border-radius:50%;object-fit:cover;
+    border:3px solid var(--yellow);transform:rotate(-5deg);
   }
-  .footer-brand span{font-family:'Noto Serif TC',serif;font-weight:700;font-size:1.15rem;letter-spacing:.1em;color:#fff;}
+  .footer-brand span{font-weight:900;font-size:1.15rem;letter-spacing:.1em;color:#fff;}
   footer h4{
-    font-family:'Noto Serif TC',serif;font-size:1.05rem;color:#fff;margin-bottom:16px;letter-spacing:.08em;
+    font-size:1.05rem;color:var(--yellow);margin-bottom:16px;letter-spacing:.08em;font-weight:900;
   }
   footer li{list-style:none;margin-bottom:10px;display:flex;gap:8px;align-items:baseline;}
-  footer a:hover{color:var(--accent);}
+  footer a:hover{color:var(--yellow);}
   .social{display:flex;gap:14px;margin-top:18px;}
   .social a{
-    width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.12);
-    display:flex;align-items:center;justify-content:center;transition:.25s;
+    width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.12);
+    border:2px solid transparent;
+    display:flex;align-items:center;justify-content:center;transition:.2s;
   }
-  .social a:hover{background:var(--accent);}
+  .social a:hover{background:var(--coral);border-color:#fff;transform:rotate(-8deg);}
   .social svg{width:20px;height:20px;fill:#fff;}
   .footer-map iframe{
-    width:100%;height:220px;border:0;border-radius:12px;filter:sepia(.15);
+    width:100%;height:220px;border:3px solid var(--yellow);border-radius:16px;
   }
   .copyright{
-    border-top:1px solid rgba(255,255,255,.15);text-align:center;
-    padding:20px 24px;font-size:.85rem;color:#BFB8A6;letter-spacing:.05em;
+    border-top:1px solid rgba(255,255,255,.18);text-align:center;
+    padding:20px 24px;font-size:.85rem;color:#9DB2A3;letter-spacing:.05em;
   }
 
   /* ===== RWD ===== */
@@ -342,31 +478,27 @@
     .footer-map{grid-column:1/-1;}
   }
   @media (max-width: 820px){
-    .hero-inner{grid-template-columns:1fr;gap:48px;text-align:center;}
-    .hero-text{text-align:center;}
-    .hero p{margin:24px auto 40px;}
-    .hero{
-      background-image:
-        linear-gradient(rgba(250,246,239,.93),rgba(250,246,239,.86)),
-        url("hero-bg.jpg");
-      padding:80px 0 100px;
-    }
-    .ink-char{display:none;}
+    .hero-inner{grid-template-columns:1fr;gap:56px;text-align:center;}
+    .hero p{margin:0 auto 38px;}
+    .hero{padding:76px 0 100px;}
   }
   @media (max-width: 680px){
-    section{padding:60px 0;}
+    section{padding:62px 0;}
     .nav-toggle{display:block;}
     nav ul{
       display:none;position:absolute;top:100%;left:0;right:0;
-      flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line);
-      padding:12px 24px 18px;gap:2px;box-shadow:0 10px 20px rgba(61,43,31,.1);
+      flex-direction:column;background:var(--paper);border-bottom:3px solid var(--ink);
+      padding:12px 24px 18px;gap:2px;box-shadow:0 10px 20px rgba(45,74,62,.15);
     }
     nav ul.open{display:flex;}
     .features-grid,.courses-grid{grid-template-columns:1fr;}
     .footer-grid{grid-template-columns:1fr;}
-    .carousel-btn.prev{left:6px;}
-    .carousel-btn.next{right:6px;}
-    .qr-grid{gap:28px;}
+    .carousel-btn.prev{left:4px;}
+    .carousel-btn.next{right:4px;}
+    .qr-grid{gap:34px;}
+  }
+  @media (max-width: 480px){
+    .coin{width:190px;height:190px;}
   }
 </style>
 </head>
@@ -396,15 +528,16 @@
 
 <!-- Hero -->
 <section class="hero" id="top">
-  <img class="ink-char" src="pei.png" alt="" style="top:12%;left:4%;">
-  <img class="ink-char" src="gen.png" alt="" style="bottom:14%;left:30%;animation-delay:-6s;width:52px;">
+  <!-- 手繪雲朵與太陽點綴 -->
+  <svg class="blob" style="top:36px;left:4%;width:110px;" viewBox="0 0 100 60" fill="none" stroke="#2D4A3E" stroke-width="3" stroke-linecap="round"><path d="M20 45 a14 14 0 0 1 2-27 a16 16 0 0 1 30-6 a13 13 0 0 1 22 10 a12 12 0 0 1-4 23 z"/></svg>
+  <svg class="blob" style="bottom:50px;right:5%;width:90px;" viewBox="0 0 100 100" fill="none" stroke="#2D4A3E" stroke-width="3" stroke-linecap="round"><circle cx="50" cy="50" r="20" fill="#F4845F" stroke="none" opacity=".85"/><path d="M50 18v-10M50 92v-10M18 50h-10M92 50h-10M27 27l-7-7M80 80l-7-7M27 73l-7 7M80 20l-7 7"/></svg>
   <div class="container hero-inner">
     <div class="hero-text">
-      <span class="hero-eyebrow">— Bacon Writing Center —</span>
-      <h1>我手寫我口，寫作快樂多</h1>
+      <span class="hero-badge">🖍 國小・國中專業寫作教室</span>
+      <h1>我手寫我口，<br><span class="pop">寫作快樂多</span></h1>
       <p>專為國小至國中學生打造的專業寫作課程。小班制溫馨教學，讓孩子學會思考、表達、寫作，建立語文自信！</p>
-      <a class="btn btn-primary" href="#regular">探索課程</a>
-      <a class="btn btn-outline" href="#signup">立即報名</a>
+      <a class="btn btn-coral" href="#regular">探索課程</a>
+      <a class="btn btn-white" href="#signup">立即報名</a>
     </div>
     <div class="coin-stage">
       <div class="coin-float">
@@ -424,26 +557,30 @@
 <!-- 四大特色 -->
 <section id="features">
   <div class="container">
-    <h2 class="section-title">四大教學特色</h2>
-    <p class="section-sub">像一杯溫熱的牛奶咖啡，陪孩子慢慢醞釀文字的香氣</p>
+    <h2 class="section-title"><span class="marker">四大教學特色</span></h2>
+    <p class="section-sub">像繪本一樣，每一頁都讓孩子捨不得闔上</p>
     <div class="features-grid">
       <div class="feature-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 7h7M9 11h7"/></svg>
+        <span class="tape"></span>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 7h7M9 11h7"/></svg>
         <h3>深度理解</h3>
         <p>培養閱讀素養，讓孩子真正讀懂文本，掌握題意不失分</p>
       </div>
       <div class="feature-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/><path d="m15 5 4 4"/></svg>
+        <span class="tape"></span>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/><path d="m15 5 4 4"/></svg>
         <h3>創意表達</h3>
         <p>啟發想像力，鼓勵孩子用自己的聲音說故事、寫故事</p>
       </div>
       <div class="feature-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.4 1 2.3h6c0-.9.4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+        <span class="tape"></span>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.4 1 2.3h6c0-.9.4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
         <h3>活化課程</h3>
         <p>多元互動教學設計，讓學習不枯燥，孩子主動參與</p>
       </div>
       <div class="feature-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        <span class="tape"></span>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
         <h3>專業師資</h3>
         <p>師資持續精進，用心陪伴每位孩子的每一步成長</p>
       </div>
@@ -454,11 +591,11 @@
 <!-- 課程體系 -->
 <section class="courses" id="regular">
   <div class="container">
-    <h2 class="section-title">課程體系</h2>
+    <h2 class="section-title"><span class="marker">課程體系</span></h2>
     <p class="section-sub">從小學到國中，循序漸進的寫作學習地圖</p>
     <div class="courses-grid">
       <div class="course-col">
-        <h3>常態課程</h3>
+        <span class="col-badge">常態課程</span>
         <div class="en">Regular Courses</div>
         <ul>
           <li>小學寫作・低年級 <small>注音書寫，啟蒙表達</small></li>
@@ -469,12 +606,15 @@
           <li>國中寫作・國三 <small>會考衝刺，穩拿級分</small></li>
         </ul>
         <div class="course-banners">
-          <img src="banner-spring.png" alt="2026 春季寫作班">
+          <img src="banner-summer.png" alt="2026 夏季作文班">
         </div>
-        <a class="btn btn-primary" href="#contact">了解更多</a>
+        <div class="course-actions">
+          <a class="btn btn-sky" href="#contact">了解更多</a>
+          <a class="btn btn-white" href="#schedule-summer">📅 夏季班時段表</a>
+        </div>
       </div>
       <div class="course-col" id="seasonal">
-        <h3>寒暑假課程</h3>
+        <span class="col-badge">寒暑假課程</span>
         <div class="en">Seasonal Camps</div>
         <ul>
           <li>夏季作文班 <small>暑期實體班，多時段選擇</small></li>
@@ -482,26 +622,365 @@
           <li>苗栗山城暑期寫作營 <small>山城寫作之旅</small></li>
         </ul>
         <div class="course-banners">
-          <img src="banner-summer.png" alt="2026 夏季作文班">
           <img src="banner-summercamp.png" alt="2026 新竹暑期寫作營">
           <img src="banner-miaolicamp.png" alt="2026 苗栗青少年暑期寫作營">
         </div>
-        <a class="btn btn-primary" href="#signup">了解更多</a>
+        <div class="course-actions">
+          <a class="btn btn-coral" href="#signup">了解更多</a>
+          <a class="btn btn-white" href="#schedule-camp">📅 暑期營課表</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 報名 QR Code -->
-<section id="signup">
+<!-- 課表總覽 -->
+<section class="schedule-sec" id="schedule">
   <div class="container">
-    <h2 class="section-title">現在報名，開啟寫作之旅！</h2>
+    <h2 class="section-title"><span class="marker">課表總覽</span></h2>
+    <p class="section-sub">點選梯次，找到最適合孩子的時段 🗓️</p>
+
+    <!-- 新竹暑期寫作營 -->
+    <div class="sched-block" id="schedule-camp">
+      <div class="sched-head"><span class="doodle">⛺</span><h3>新竹暑期寫作營</h3><span class="doodle">✏️</span></div>
+      <div class="tabs" id="campTabs">
+        <button class="tab-btn active" data-tab="t1">第一梯次<small>7/6 – 7/10</small></button>
+        <button class="tab-btn" data-tab="t2">第二梯次<small>7/13 – 7/17</small></button>
+        <button class="tab-btn" data-tab="t3">第三梯次<small>7/27 – 7/31</small></button>
+        <button class="tab-btn" data-tab="t4">第四梯次<small>8/3 – 8/7</small></button>
+      </div>
+      <div class="tab-panel show" id="t1">
+        <div class="grade-row">
+          <div class="grade-tag">升小四</div>
+          <div class="lesson-list">
+            <div class="lesson"><span class="t">08:30–10:20</span><span class="n">細物偵探記事 A</span></div>
+            <div class="lesson"><span class="t">10:40–12:30</span><span class="n">感官觸發與寫作 A</span></div>
+          </div>
+        </div>
+        <div class="grade-row">
+          <div class="grade-tag">高年級</div>
+          <div class="lesson-list">
+            <div class="lesson"><span class="t">08:30–10:20</span><span class="n">文章句式與寫作</span></div>
+            <div class="lesson"><span class="t">10:40–12:20</span><span class="n">高級繪本問思與寫作</span></div>
+          </div>
+        </div>
+        <div class="grade-row">
+          <div class="grade-tag">國中</div>
+          <div class="lesson-list">
+            <div class="lesson"><span class="t">08:30–10:20</span><span class="n">文章修辭與寫作</span></div>
+            <div class="lesson"><span class="t">10:40–12:20</span><span class="n">文言短文導讀與寫作 A</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="t2">
+        <div class="grade-row">
+          <div class="grade-tag">升二三</div>
+          <div class="lesson-list">
+            <div class="lesson"><span class="t">08:30–10:20</span><span class="n">遊戲與寫作</span></div>
+            <div class="lesson"><span class="t">10:40–12:20</span><span class="n">繪本閱讀與寫作</span></div>
+          </div>
+        </div>
+        <div class="grade-row">
+          <div class="grade-tag">升小四</div>
+          <div class="lesson-list">
+            <div class="lesson"><span class="t">08:30–10:20</span><span class="n">細物偵探記事 B</span></div>
+            <div class="lesson"><span class="t">10:40–12:20</span><span class="n">感官觸發與寫作 B</span></div>
+          </div>
+        </div>
+        <div class="grade-row">
+          <div class="grade-tag">高年級</div>
+          <div class="lesson-list">
+            <div class="lesson"><span class="t">08:30–10:20</span><span class="n">穿梭讀寫門</span></div>
+            <div class="lesson"><span class="t">10:40–12:20</span><span class="n">文章句式與寫作</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="t3">
+        <div class="grade-row">
+          <div class="grade-tag">升二三</div>
+          <div class="lesson-list">
+            <div class="lesson"><span class="t">08:30–10:20</span><span class="n">遊戲與寫作</span></div>
+            <div class="lesson"><span class="t">10:40–12:20</span><span class="n">繪本閱讀與寫作</span></div>
+          </div>
+        </div>
+        <div class="grade-row">
+          <div class="grade-tag">升小四</div>
+          <div class="lesson-list">
+            <div class="lesson"><span class="t">08:30–10:20</span><span class="n">細物偵探記事 B</span></div>
+            <div class="lesson"><span class="t">10:40–12:20</span><span class="n">感官觸發與寫作 B</span></div>
+          </div>
+        </div>
+        <div class="grade-row">
+          <div class="grade-tag">國中</div>
+          <div class="lesson-list">
+            <div class="lesson"><span class="t">08:30–10:20</span><span class="n">圖表解讀與寫作</span></div>
+            <div class="lesson"><span class="t">10:40–12:20</span><span class="n">文言短文導讀與寫作 B</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="t4">
+        <div class="grade-row">
+          <div class="grade-tag">升三</div>
+          <div class="lesson-list">
+            <div class="lesson"><span class="t">08:30–10:20</span><span class="n">我會寫日記</span></div>
+            <div class="lesson"><span class="t">10:40–12:20</span><span class="n">名言故事與寫作</span></div>
+          </div>
+        </div>
+        <div class="grade-row">
+          <div class="grade-tag">升小四</div>
+          <div class="lesson-list">
+            <div class="lesson"><span class="t">08:30–10:20</span><span class="n">感官觸發與寫作 B</span></div>
+            <div class="lesson"><span class="t">10:40–12:20</span><span class="n">細物偵探記事 B</span></div>
+          </div>
+        </div>
+        <div class="grade-row">
+          <div class="grade-tag">高年級</div>
+          <div class="lesson-list">
+            <div class="lesson"><span class="t">08:30–10:20</span><span class="n">文章句式與寫作</span></div>
+            <div class="lesson"><span class="t">10:40–12:20</span><span class="n">寓言故事與寫作</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="sched-note">完整課表也可<a href="schedule-hsinchu-camp.pdf" target="_blank" rel="noopener">下載 PDF</a> 📎</p>
+    </div>
+
+    <!-- 夏季班 -->
+    <div class="sched-block" id="schedule-summer">
+      <div class="sched-head"><span class="doodle">🌻</span><h3>2026 夏季班・實體課程時段</h3><span class="doodle">📖</span></div>
+      <div class="info-chips">
+        <span class="chip">6月3日起陸續開課</span>
+        <span class="chip cool">共 11 次・每次 110 分鐘</span>
+        <span class="chip hot">國小 6600 元｜國中 7040 元</span>
+      </div>
+      <div class="theme-grid">
+        <div class="theme-card">
+          <h4>寫作小當家</h4>
+          <p class="grade">適合：升三年級</p>
+          <div class="slot-list">
+            <span class="slot">週六 08:10</span>
+            <span class="slot">週六 10:10</span>
+            <span class="slot">週六 15:30</span>
+            <span class="slot wed">週三 13:30</span>
+          </div>
+        </div>
+        <div class="theme-card">
+          <h4>細物偵探記事</h4>
+          <p class="grade">適合：升四年級</p>
+          <div class="slot-list">
+            <span class="slot wed">週三 13:30</span>
+            <span class="slot">週六 08:10</span>
+            <span class="slot">週六 10:10</span>
+            <span class="slot">週六 13:30</span>
+            <span class="slot">週六 15:30</span>
+          </div>
+        </div>
+        <div class="theme-card">
+          <h4>穿梭讀寫門</h4>
+          <p class="grade">適合：升五年級</p>
+          <div class="slot-list">
+            <span class="slot wed">週三 13:30</span>
+            <span class="slot">週六 08:10</span>
+            <span class="slot">週六 10:10</span>
+            <span class="slot">週六 13:30</span>
+            <span class="slot sun">週日 08:10</span>
+          </div>
+        </div>
+        <div class="theme-card">
+          <h4>巷弄思想家</h4>
+          <p class="grade">適合：升六年級</p>
+          <div class="slot-list">
+            <span class="slot wed">週三 13:30</span>
+            <span class="slot">週六 15:30</span>
+            <span class="slot sun">週日 10:10</span>
+          </div>
+        </div>
+        <div class="theme-card">
+          <h4>會考寫作預備與衝刺</h4>
+          <p class="grade">適合：升國一・國二・國三</p>
+          <div class="slot-list">
+            <span class="slot sun">升國一・週日 08:10</span>
+            <span class="slot sun">升國二・週日 10:10</span>
+            <span class="slot sun">升國三・週日 10:10</span>
+          </div>
+        </div>
+      </div>
+      <p class="sched-note">上課地點：新竹市德成街16號｜詳細班別請見<a href="schedule-summer-class.pdf" target="_blank" rel="noopener">完整時段表 PDF</a> 📎</p>
+    </div>
+  </div>
+</section>
+
+<!-- 作文比賽 -->
+<section class="contest" id="news">
+  <div class="container">
+    <h2 class="section-title"><span class="marker">作文比賽</span></h2>
+    <p class="section-sub">恭喜得獎的小作家們！每一篇好文章都值得被看見 🎉</p>
+    <figure class="contest-frame">
+      <span class="tape-l"></span><span class="tape-r"></span>
+      <a href="contest-goldpen.png" target="_blank" rel="noopener">
+        <img src="contest-goldpen.png" alt="2026 春季作文比賽金筆獎得獎名單">
+      </a>
+      <figcaption>2026 春季作文比賽・金筆獎得獎名單（點圖放大）</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 報名 QR Code -->
+<section id="signup" class="signup-sec">
+  <div class="container">
+    <h2 class="section-title"><span class="marker">現在報名，開啟寫作之旅！</span></h2>
     <p class="section-sub">掃描 QR Code，立即報名暑期寫作營</p>
     <div class="qr-grid">
       <div class="qr-card">
+        <span class="pin"></span>
         <img src="qr-hsinchu.png" alt="新竹暑期寫作營報名 QR Code">
         <h3>新竹暑期寫作營</h3>
         <p>掃描報名・四梯次課程</p>
       </div>
       <div class="qr-card">
-      
+        <span class="pin"></span>
+        <img src="qr-miaoli.png" alt="苗栗山城暑期寫作營報名 QR Code">
+        <h3>苗栗山城暑期寫作營</h3>
+        <p>掃描報名・山城寫作之旅</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 家長好評 -->
+<section class="reviews" id="voice">
+  <div class="container">
+    <h2 class="section-title"><span class="marker">家長這樣說</span></h2>
+    <p class="section-sub">來自 Google 評論的真實回饋</p>
+    <div class="carousel">
+      <div class="carousel-track">
+        <div class="carousel-slides" id="slides">
+          <div class="bubble-wrap">
+            <div class="bubble">
+              <div class="stars">★★★★★</div>
+              <blockquote>「小朋友上課很開心，教學不會一成不變，作文能力明顯提高。」</blockquote>
+            </div>
+            <div class="bubble-author">
+              <span class="avatar">馬</span>
+              <span>Chang-Po Ma</span>
+            </div>
+          </div>
+          <div class="bubble-wrap">
+            <div class="bubble">
+              <div class="stars">★★★★★</div>
+              <blockquote>「小孩在這學作文，很有進步。」</blockquote>
+            </div>
+            <div class="bubble-author">
+              <span class="avatar">C</span>
+              <span>CY C</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-btn prev" id="prevBtn" aria-label="上一則">‹</button>
+      <button class="carousel-btn next" id="nextBtn" aria-label="下一則">›</button>
+      <div class="carousel-dots" id="dots"></div>
+    </div>
+    <div class="more-link">
+      <a class="btn btn-white" href="https://www.google.com/maps/search/?api=1&query=培根專業寫作+新竹市德成街16號" target="_blank" rel="noopener">查看更多 Google 評論</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA 結尾 -->
+<section class="cta-final" id="works">
+  <div class="container">
+    <span class="hand-note">Ready? Let's write!</span>
+    <h2>準備好開始寫作之旅了嗎？</h2>
+    <p>小班制溫馨上課，專業師資用心陪伴</p>
+    <a class="btn btn-coral" href="#signup">立即報名</a>
+    <a class="btn btn-sky" href="#regular">了解更多課程</a>
+  </div>
+</section>
+
+<!-- 頁尾 -->
+<footer id="about">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <img src="logo.jpg" alt="培根專業寫作中心 Logo">
+        <span>培根專業寫作中心</span>
+      </div>
+      <p style="opacity:.85;">我手寫我口，寫作快樂多。<br>陪伴孩子用文字記錄世界、表達自己。</p>
+      <div class="social">
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M13.5 9H16l.5-3h-3V4.5c0-.9.3-1.5 1.6-1.5H16.6V.2C16.3.16 15.3 0 14.1 0 11.6 0 10 1.5 10 4.2V6H7.5v3H10v9h3.5V9z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div id="contact">
+      <h4>聯絡我們</h4>
+      <ul>
+        <li>📍 新竹市德成街16號</li>
+        <li>☎ (03)5255393、5231985</li>
+        <li>✉ <a href="mailto:17bacon@gmail.com">17bacon@gmail.com</a></li>
+      </ul>
+    </div>
+    <div class="footer-map">
+      <h4>位置地圖</h4>
+      <iframe
+        src="https://www.google.com/maps?q=%E5%9F%B9%E6%A0%B9%E5%B0%88%E6%A5%AD%E5%AF%AB%E4%BD%9C+%E6%96%B0%E7%AB%B9%E5%B8%82%E5%BE%B7%E6%88%90%E8%A1%9716%E8%99%9F&output=embed"
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        title="培根專業寫作中心地圖"></iframe>
+    </div>
+  </div>
+  <div class="copyright">© 培根專業寫作中心 Bacon Writing Center</div>
+</footer>
+
+<script>
+  // 手機選單
+  var navToggle = document.getElementById('navToggle');
+  var navMenu = document.getElementById('navMenu');
+  navToggle.addEventListener('click', function(){ navMenu.classList.toggle('open'); });
+  Array.prototype.forEach.call(navMenu.querySelectorAll('a'), function(a){
+    a.addEventListener('click', function(){ navMenu.classList.remove('open'); });
+  });
+
+  // 家長好評輪播（純 JS）
+  var slides = document.getElementById('slides');
+  var total = slides.children.length;
+  var dotsBox = document.getElementById('dots');
+  var index = 0, timer;
+
+  for (var i = 0; i < total; i++) {
+    (function(i){
+      var dot = document.createElement('button');
+      dot.setAttribute('aria-label', '第' + (i + 1) + '則評論');
+      dot.addEventListener('click', function(){ go(i); });
+      dotsBox.appendChild(dot);
+    })(i);
+  }
+
+  function render() {
+    slides.style.transform = 'translateX(-' + (index * 100) + '%)';
+    Array.prototype.forEach.call(dotsBox.children, function(d, i){
+      d.classList.toggle('active', i === index);
+    });
+  }
+  function go(i) { index = (i + total) % total; render(); restart(); }
+  function restart() { clearInterval(timer); timer = setInterval(function(){ go(index + 1); }, 6000); }
+
+  document.getElementById('prevBtn').addEventListener('click', function(){ go(index - 1); });
+  document.getElementById('nextBtn').addEventListener('click', function(){ go(index + 1); });
+  render(); restart();
+
+  // 課表梯次頁籤
+  var tabBtns = document.querySelectorAll('#campTabs .tab-btn');
+  Array.prototype.forEach.call(tabBtns, function(btn){
+    btn.addEventListener('click', function(){
+      Array.prototype.forEach.call(tabBtns, function(b){ b.classList.remove('active'); });
+      Array.prototype.forEach.call(document.querySelectorAll('.tab-panel'), function(p){ p.classList.remove('show'); });
+      btn.classList.add('active');
+      document.getElementById(btn.getAttribute('data-tab')).classList.add('show');
+    });
+  });
+</script>
+</body>
+</html>
