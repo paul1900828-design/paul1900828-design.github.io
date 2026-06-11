@@ -397,6 +397,19 @@
     text-align:center;margin-top:26px;font-family:'LXGW WenKai TC',serif;color:var(--ink-soft);font-size:.95rem;
   }
   .sched-note a{font-weight:700;text-decoration:underline;}
+  .mini-list{list-style:none;margin-top:6px;}
+  .mini-list li{
+    display:flex;gap:10px;align-items:baseline;padding:7px 2px;
+    border-bottom:2px dashed rgba(45,74,62,.22);font-weight:500;font-size:.95rem;
+  }
+  .mini-list li:last-child{border-bottom:none;}
+  .mini-list .no{
+    flex:0 0 24px;height:24px;border-radius:50%;border:2px solid var(--ink);
+    background:var(--yellow);font-weight:900;font-size:.75rem;
+    display:flex;align-items:center;justify-content:center;align-self:center;
+  }
+  .feature-slots{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:24px;}
+  .feature-slots .slot{font-size:.88rem;padding:5px 16px;}
   @media (max-width: 680px){
     .grade-row{flex-direction:column;gap:12px;}
     .grade-tag{flex:none;align-self:flex-start;padding:4px 16px;}
@@ -868,6 +881,47 @@
         </div>
       </div>
       <p class="sched-note">完整課表也可<a href="schedule-hsinchu-camp.pdf" target="_blank" rel="noopener">下載 PDF</a> 📎</p>
+    </div>
+
+    <!-- 苗栗山城暑期寫作營 -->
+    <div class="sched-block" id="schedule-miaoli">
+      <div class="sched-head"><span class="doodle">🏔️</span><h3>苗栗山城暑期寫作營</h3><span class="doodle">🌾</span></div>
+      <div class="info-chips">
+        <span class="chip">7/20 – 7/24・週一至週五上午</span>
+        <span class="chip cool">每節 50 分鐘・共寫十篇作文</span>
+        <span class="chip hot">適合：升五・升六・升國一</span>
+      </div>
+      <div class="theme-grid">
+        <div class="theme-card">
+          <h4>文章句式與寫作</h4>
+          <p class="grade">五堂課，玩出句式的魔法</p>
+          <ul class="mini-list">
+            <li><span class="no">一</span>設問自答－因果</li>
+            <li><span class="no">二</span>魚與熊掌－並列</li>
+            <li><span class="no">三</span>一來二去－連貫</li>
+            <li><span class="no">四</span>談判技巧－條件</li>
+            <li><span class="no">五</span>築高廣積－遞進</li>
+          </ul>
+        </div>
+        <div class="theme-card">
+          <h4>寓言故事與寫作</h4>
+          <p class="grade">五則寓言，寫出自己的故事</p>
+          <ul class="mini-list">
+            <li><span class="no">一</span>疑心生「竊鈇」</li>
+            <li><span class="no">二</span>「學」目不轉睛</li>
+            <li><span class="no">三</span>怎樣超越「我」</li>
+            <li><span class="no">四</span>渾沌鑿竅「死」</li>
+            <li><span class="no">五</span>寓言自「創作」</li>
+          </ul>
+        </div>
+      </div>
+      <div class="feature-slots">
+        <span class="slot">✍️ 抓核心・文言白話提煉黃金</span>
+        <span class="slot wed">🎯 活策略・寫作不用死背套路</span>
+        <span class="slot sun">🎲 玩過程・共同學習激發樂趣</span>
+        <span class="slot">🌟 重體驗・寫出你的獨一無二</span>
+      </div>
+      <p class="sched-note">上課地點：頭份市僑成國小（苗栗縣頭份市信東路285號）｜<a href="flyer-miaoli.pdf" target="_blank" rel="noopener">完整文宣 PDF</a> 📎</p>
     </div>
 
     <!-- 夏季班 -->
