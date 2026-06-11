@@ -172,6 +172,73 @@
     .coin,.coin-float,.coin-shadow{-webkit-animation:none;animation:none;}
   }
 
+  /* ===== 狂賀區塊 ===== */
+  .congrats{
+    background:var(--coral);border-bottom:3px solid var(--ink);
+    padding:72px 0 80px;overflow:hidden;position:relative;
+  }
+  .congrats::before{ /* 彩帶圓點 */
+    content:"";position:absolute;inset:0;opacity:.55;pointer-events:none;
+    background-image:
+      radial-gradient(#F9E84A 4px,transparent 4px),
+      radial-gradient(#fff 3px,transparent 3px),
+      radial-gradient(#89C4E1 3.5px,transparent 3.5px);
+    background-size:120px 120px,90px 90px,150px 150px;
+    background-position:0 0,40px 60px,70px 20px;
+  }
+  .congrats-banner{
+    text-align:center;position:relative;margin-bottom:48px;
+  }
+  .congrats-banner .ribbon{
+    display:inline-block;background:var(--yellow);
+    border:3px solid var(--ink);border-radius:18px;
+    padding:16px 46px;transform:rotate(-1.5deg);
+    box-shadow:7px 7px 0 var(--ink);
+  }
+  .congrats-banner h2{
+    font-size:clamp(1.7rem,4.5vw,2.6rem);font-weight:900;letter-spacing:.14em;line-height:1.4;
+  }
+  .congrats-banner h2 .six{
+    color:var(--coral);text-shadow:2.5px 2.5px 0 #fff;font-size:1.2em;
+  }
+  .congrats-banner p{
+    margin-top:22px;color:#fff;font-weight:900;font-size:1.25rem;letter-spacing:.2em;
+    text-shadow:2px 2px 0 rgba(45,74,62,.4);position:relative;
+  }
+  .congrats-banner .spark{font-size:1.7rem;vertical-align:middle;}
+  .thanks-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:30px;max-width:960px;margin:0 auto;position:relative;
+  }
+  .thanks-card{
+    background:#FFFDF5;border:3px solid var(--ink);border-radius:22px;
+    padding:30px 30px 26px;box-shadow:6px 6px 0 var(--ink);
+    display:flex;gap:20px;align-items:flex-start;transition:.25s;
+  }
+  .thanks-card:first-child{transform:rotate(-1deg);}
+  .thanks-card:last-child{transform:rotate(1deg);}
+  .thanks-card:hover{transform:rotate(0) translateY(-5px);}
+  .parent-avatar{
+    flex:0 0 76px;width:76px;height:76px;border-radius:50%;
+    border:3px solid var(--ink);overflow:hidden;
+    box-shadow:3px 3px 0 var(--ink);
+  }
+  .parent-avatar svg{width:100%;height:100%;display:block;}
+  .thanks-body .medal{
+    display:inline-block;background:var(--yellow);border:2px solid var(--ink);
+    border-radius:30px;font-weight:900;font-size:.8rem;padding:1px 12px;
+    margin-bottom:10px;transform:rotate(-1.5deg);
+  }
+  .thanks-body blockquote{
+    font-family:'LXGW WenKai TC',serif;font-size:1rem;line-height:1.95;
+  }
+  .thanks-body cite{
+    display:block;margin-top:10px;font-style:normal;font-weight:700;
+    color:var(--ink-soft);font-size:.88rem;
+  }
+  @media (max-width: 760px){
+    .thanks-grid{grid-template-columns:1fr;}
+  }
+
   /* ===== 四大特色：手剪貼卡片 ===== */
   .features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;}
   .feature-card{
@@ -549,6 +616,65 @@
           </div>
         </div>
         <div class="coin-shadow"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 狂賀！會考六級分 -->
+<section class="congrats">
+  <div class="container">
+    <div class="congrats-banner">
+      <div class="ribbon">
+        <h2>🎉 狂賀！會考作文<span class="six">六級分</span> 🎉</h2>
+      </div>
+      <p><span class="spark">✨</span> 恭喜培根孩子們！ <span class="spark">✨</span></p>
+    </div>
+    <div class="thanks-grid">
+      <div class="thanks-card">
+        <div class="parent-avatar">
+          <!-- 媽媽頭像 -->
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="100" fill="#89C4E1"/>
+            <path d="M50 16 C28 16 22 36 24 52 C25 62 22 70 18 76 L36 72 C40 74 45 75 50 75 C55 75 60 74 64 72 L82 76 C78 70 75 62 76 52 C78 36 72 16 50 16 z" fill="#2D4A3E"/>
+            <circle cx="50" cy="52" r="22" fill="#FCE3D0"/>
+            <path d="M50 18 C32 18 28 36 30 46 C36 40 44 36 50 36 C56 36 64 40 70 46 C72 36 68 18 50 18 z" fill="#2D4A3E"/>
+            <circle cx="42" cy="52" r="2.6" fill="#2D4A3E"/>
+            <circle cx="58" cy="52" r="2.6" fill="#2D4A3E"/>
+            <path d="M44 62 Q50 67 56 62" stroke="#2D4A3E" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+            <circle cx="36" cy="59" r="3.6" fill="#F4845F" opacity=".55"/>
+            <circle cx="64" cy="59" r="3.6" fill="#F4845F" opacity=".55"/>
+            <path d="M30 96 C32 82 40 78 50 78 C60 78 68 82 70 96 z" fill="#F4845F"/>
+          </svg>
+        </div>
+        <div class="thanks-body">
+          <span class="medal">🏅 會考作文六級分</span>
+          <blockquote>「謝謝老師的栽培，提供那麼好的教材與寫作環境，O豪這次的會考也六級分，真心感謝所有教導過O豪的老師！」</blockquote>
+          <cite>— O豪媽媽</cite>
+        </div>
+      </div>
+      <div class="thanks-card">
+        <div class="parent-avatar">
+          <!-- 爸爸頭像 -->
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="100" fill="#F9E84A"/>
+            <circle cx="50" cy="52" r="22" fill="#F7D6B8"/>
+            <path d="M28 50 C26 30 36 16 50 16 C64 16 74 30 72 50 C70 42 66 34 50 34 C34 34 30 42 28 50 z" fill="#2D4A3E"/>
+            <circle cx="42" cy="52" r="2.6" fill="#2D4A3E"/>
+            <circle cx="58" cy="52" r="2.6" fill="#2D4A3E"/>
+            <rect x="34" y="46" width="14" height="11" rx="5" fill="none" stroke="#2D4A3E" stroke-width="2.2"/>
+            <rect x="52" y="46" width="14" height="11" rx="5" fill="none" stroke="#2D4A3E" stroke-width="2.2"/>
+            <line x1="48" y1="51" x2="52" y2="51" stroke="#2D4A3E" stroke-width="2.2"/>
+            <path d="M44 64 Q50 68 56 64" stroke="#2D4A3E" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+            <path d="M30 96 C32 82 40 78 50 78 C60 78 68 82 70 96 z" fill="#2D4A3E"/>
+            <path d="M46 78 L50 84 L54 78 z" fill="#89C4E1"/>
+          </svg>
+        </div>
+        <div class="thanks-body">
+          <span class="medal">🏅 會考作文六級分</span>
+          <blockquote>「感謝培根在寫作上對小犬的啟蒙栽培，這次會考作文6級分，真的謝謝培根、謝謝老師。」</blockquote>
+          <cite>— 培根家長</cite>
+        </div>
       </div>
     </div>
   </div>
